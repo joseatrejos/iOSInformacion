@@ -17,9 +17,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         self.title = "Contactos"
         
-        contactos.append(Contacto(nombre: "José Alberto Trejo Serrano", telefono: 6622971893, direccion: "Paseo de la Floresta 59", correo: "joseatrejos@hotmail.com", foto: "Perfil1"))
-        contactos.append(Contacto(nombre: "Leticia Serrano Genda", telefono: 6623004022, direccion: "Paseo de la Floresta 59", correo: "letticiaserranog@gmail.com", foto: "Perfil2"))
-        contactos.append(Contacto(nombre: "Ismael Trejo Bazúa", telefono: 6622689298, direccion: "Paseo de la Floresta 59", correo: "itrejob@hotmail.com", foto: "Perfil3"))
+        contactos.append(Contacto(nombre: "José Trejo", telefono: 6622971893, direccion: "Paseo de la Floresta 59", correo: "joseatrejos@hotmail.com", foto: "Perfil1"))
+        contactos.append(Contacto(nombre: "Leticia Serrano", telefono: 6623004022, direccion: "Paseo de la Floresta 59", correo: "letticiaserranog@gmail.com", foto: "Perfil3"))
+        contactos.append(Contacto(nombre: "Ismael Trejo", telefono: 6622689298, direccion: "Paseo de la Floresta 59", correo: "itrejob@hotmail.com", foto: "Perfil4"))
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,6 +40,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return celda!
     }
     
+    func recargarTabla() {
+        tvContactos.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 155
     }
@@ -49,6 +53,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let destino = segue.destination as? EditarContactoController
             
             destino?.contacto = contactos[tvContactos.indexPathForSelectedRow!.row]
+            
+            destino?.callbackActualizarTabla = recargarTabla
         }
     }
 }
