@@ -97,7 +97,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YNr-Bl-ss4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fdY-Fr-jYj"/>
+                    <navigationItem key="navigationItem" id="fdY-Fr-jYj">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2bN-LB-LIu">
+                            <connections>
+                                <segue destination="Mp1-5Z-U0Q" kind="show" identifier="goToAgregar" id="i6x-ae-sxh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tvContactos" destination="Xme-rH-XHw" id="xfa-Qd-hXm"/>
                     </connections>
@@ -126,29 +132,49 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oek-l4-s9V">
-                                <rect key="frame" x="328" y="225" width="66" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gWG-UC-whv" userLabel="Txt Direccion">
+                                <rect key="frame" x="20" y="225" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oek-l4-s9V" userLabel="Btn Guardar">
+                                <rect key="frame" x="328" y="330" width="66" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Guardar"/>
                                 <connections>
                                     <action selector="doTapGuardar:" destination="Mp1-5Z-U0Q" eventType="touchUpInside" id="NXq-Ue-FIZ"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q9q-N9-4OW" userLabel="Txt Correo">
+                                <rect key="frame" x="20" y="275" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5DU-IX-EPq" firstAttribute="trailing" secondItem="Oek-l4-s9V" secondAttribute="trailing" constant="20" id="8Nh-iZ-Efo"/>
                             <constraint firstItem="540-Wi-CbS" firstAttribute="top" secondItem="5DU-IX-EPq" secondAttribute="top" constant="37" id="Cr4-aW-CcA"/>
+                            <constraint firstItem="Q9q-N9-4OW" firstAttribute="top" secondItem="gWG-UC-whv" secondAttribute="bottom" constant="20" id="ECb-bJ-zti"/>
                             <constraint firstItem="TYb-fL-ahc" firstAttribute="leading" secondItem="5DU-IX-EPq" secondAttribute="leading" constant="20" id="F4r-ul-Knd"/>
+                            <constraint firstItem="5DU-IX-EPq" firstAttribute="trailing" secondItem="Q9q-N9-4OW" secondAttribute="trailing" constant="20" id="MBJ-1d-CZv"/>
                             <constraint firstItem="5DU-IX-EPq" firstAttribute="trailing" secondItem="540-Wi-CbS" secondAttribute="trailing" constant="20" id="TIF-52-kKx"/>
+                            <constraint firstItem="gWG-UC-whv" firstAttribute="leading" secondItem="5DU-IX-EPq" secondAttribute="leading" constant="20" id="VwU-8A-J0D"/>
+                            <constraint firstItem="gWG-UC-whv" firstAttribute="top" secondItem="TYb-fL-ahc" secondAttribute="bottom" constant="20" id="Y4m-iL-0eL"/>
                             <constraint firstItem="5DU-IX-EPq" firstAttribute="trailing" secondItem="TYb-fL-ahc" secondAttribute="trailing" constant="20" id="ZOl-f8-RQH"/>
-                            <constraint firstItem="Oek-l4-s9V" firstAttribute="top" secondItem="TYb-fL-ahc" secondAttribute="bottom" constant="20" id="qGv-2g-bge"/>
+                            <constraint firstItem="Oek-l4-s9V" firstAttribute="top" secondItem="Q9q-N9-4OW" secondAttribute="bottom" constant="25" id="aUF-11-NMd"/>
+                            <constraint firstItem="5DU-IX-EPq" firstAttribute="trailing" secondItem="gWG-UC-whv" secondAttribute="trailing" constant="20" id="lUH-8k-ME0"/>
                             <constraint firstItem="TYb-fL-ahc" firstAttribute="top" secondItem="540-Wi-CbS" secondAttribute="bottom" constant="20" id="re8-i7-58C"/>
                             <constraint firstItem="540-Wi-CbS" firstAttribute="leading" secondItem="5DU-IX-EPq" secondAttribute="leading" constant="20" id="uWt-vM-0gM"/>
+                            <constraint firstItem="Q9q-N9-4OW" firstAttribute="leading" secondItem="5DU-IX-EPq" secondAttribute="leading" constant="20" id="yxg-9d-0L8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5DU-IX-EPq"/>
                     </view>
                     <connections>
+                        <outlet property="txtCorreo" destination="Q9q-N9-4OW" id="Sv0-zc-4Gl"/>
+                        <outlet property="txtDireccion" destination="gWG-UC-whv" id="QPk-xD-ia1"/>
                         <outlet property="txtNombre" destination="540-Wi-CbS" id="bpL-e3-t3k"/>
                         <outlet property="txtTelefono" destination="TYb-fL-ahc" id="UHt-Fy-iDf"/>
                     </connections>
@@ -158,4 +184,7 @@
             <point key="canvasLocation" x="1553.6231884057972" y="434.59821428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="i6x-ae-sxh"/>
+    </inferredMetricsTieBreakers>
 </document>

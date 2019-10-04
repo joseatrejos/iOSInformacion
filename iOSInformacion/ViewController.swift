@@ -19,7 +19,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         contactos.append(Contacto(nombre: "José Trejo", telefono: 6622971893, direccion: "Paseo de la Floresta 59", correo: "joseatrejos@hotmail.com", foto: "Perfil1"))
         contactos.append(Contacto(nombre: "Leticia Serrano", telefono: 6623004022, direccion: "Paseo de la Floresta 59", correo: "letticiaserranog@gmail.com", foto: "Perfil3"))
-        contactos.append(Contacto(nombre: "Ismael Trejo", telefono: 6622689298, direccion: "Paseo de la Floresta 59", correo: "itrejob@hotmail.com", foto: "Perfil4"))
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,6 +54,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             destino?.contacto = contactos[tvContactos.indexPathForSelectedRow!.row]
             
             destino?.callbackActualizarTabla = recargarTabla
+        }
+        else
+            if segue.identifier == "goToAgregar" {
+                let destino = segue.destination as? EditarContactoController
+                
+                contactos.append(Contacto(nombre: "", telefono: 0, direccion: "", correo: "", foto: "Perfil4"))
+                
+                destino?.contacto = contactos[contactos.count - 1]
+                
+                destino?.callbackActualizarTabla = recargarTabla
         }
     }
 }
